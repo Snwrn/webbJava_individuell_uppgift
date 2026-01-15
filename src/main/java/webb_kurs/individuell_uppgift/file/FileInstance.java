@@ -24,9 +24,15 @@ public class FileInstance {
     @ManyToOne(fetch = FetchType.EAGER)
     private Folder folder;
 
-    public FileInstance(String title, Folder folder) {
+    @Lob
+    @Column(columnDefinition = "BLOB")
+    private byte[] data;
+
+
+    public FileInstance(String title, Folder folder, byte[] data) {
         this.title = title;
         this.folder = folder;
+        this.data = data;
     }
 
 }
