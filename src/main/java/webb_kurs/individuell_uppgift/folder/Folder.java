@@ -11,7 +11,7 @@ import webb_kurs.individuell_uppgift.user.User;
 import java.util.List;
 import java.util.UUID;
 
-@Entity
+@Entity(name = "folders")
 @Getter
 @Setter
 @NoArgsConstructor

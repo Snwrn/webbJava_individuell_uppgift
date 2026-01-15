@@ -9,7 +9,7 @@ import webb_kurs.individuell_uppgift.folder.Folder;
 
 import java.util.UUID;
 
-@Entity
+@Entity(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
