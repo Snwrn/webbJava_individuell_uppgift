@@ -8,7 +8,7 @@ import webb_kurs.individuell_uppgift.file.FileService;
 
 import java.util.List;
 
-
+/*
 public FileService service;
 
 @Autowired
@@ -26,3 +26,4 @@ public String createFile(@RequestBody String fileName) {
 public List<String> getFiles() {
     return this.service.getFiles();
 }
+*/

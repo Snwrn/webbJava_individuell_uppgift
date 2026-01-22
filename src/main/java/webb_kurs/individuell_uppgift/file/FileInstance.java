@@ -1,5 +1,5 @@
 package webb_kurs.individuell_uppgift.file;
-
+/*
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,7 +8,6 @@ import org.springframework.data.annotation.Id;
 import webb_kurs.individuell_uppgift.folder.Folder;
 
 import java.util.UUID;
-
 @Entity(name = "users")
 @Getter
 @Setter
@@ -16,7 +15,8 @@ import java.util.UUID;
 public class FileInstance {
 
     @Id
-    private final UUID id = UUID.randomUUID();
+    @GeneratedValue
+    private UUID id = UUID.randomUUID();
 
     @Column(unique = true, nullable = false)
     private String title;
@@ -37,3 +37,4 @@ public class FileInstance {
 
 }
 
+*/

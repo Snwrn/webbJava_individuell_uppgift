@@ -1,5 +1,5 @@
 package webb_kurs.individuell_uppgift.folder;
-
+/*
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +18,8 @@ import java.util.UUID;
 public class Folder {
 
     @Id
-    private final UUID id = UUID.randomUUID();
+    @GeneratedValue
+    private UUID id = UUID.randomUUID();
 
     @Column(unique = true, nullable = false)
     private String title;
@@ -36,3 +37,4 @@ public class Folder {
     }
 
 }
+*/

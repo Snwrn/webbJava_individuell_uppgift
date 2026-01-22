@@ -1,5 +1,5 @@
 package webb_kurs.individuell_uppgift.folder;
-
+/*
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,4 +28,4 @@ return "Good!";
     public List<String> getFolders() {
         return this.service.getFolders();
     }
-}
+}*/
