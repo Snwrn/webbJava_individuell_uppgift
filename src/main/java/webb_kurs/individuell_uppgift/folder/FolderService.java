@@ -1,27 +1,40 @@
 package webb_kurs.individuell_uppgift.folder;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import webb_kurs.individuell_uppgift.user.IUserRepository;
+import webb_kurs.individuell_uppgift.user.User;
+import webb_kurs.individuell_uppgift.utility.AuthUtil;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class FolderService {
 
-    private FolderRepository repository;
+    private final IFolderRepository folderRepository;
+    private final IUserRepository userRepository;
 
-    @Autowired
-    public FolderService(FolderRepository repository){
-        this.repository=repository;
-    }
-    public void createFolder(String folderName) {
-        if (folderName == null || folderName.isBlank()) {
-            throw new IllegalArgumentException("The title may not be blank.");
+    public Folder createFolder(UUID userId, String title) {
+
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+
+        //  if (!AuthUtil.validatePassword(user, request.getPassword())) {
+        //    throw new CreateFolderAuthException();
+        // }
+
+        if (title == null || title.length() < 3 || title.length() > 30) {
+            throw new IllegalArgumentException("Invalid folder title");
         }
-    this.repository.saveFolder(folderName);
+
+        Folder folder = new Folder(title, user);
+        Folder savedFolder = folderRepository.save(folder);
+
+        System.out.println("Folder with title '" + folder.getTitle() + "' created");
+        return savedFolder;
     }
 
-    public List<String> getFolders(){
-        return this.repository.getFolders();
-    }
 }

@@ -20,7 +20,7 @@ public class UserService implements IUserService {
 
         var passwordErrors = new ArrayList<PasswordError>();
         if (password.isBlank() || password.length() < 8) {
-            passwordErrors.add(PasswordError.TOO_SHORT);
+            passwordErrors.add(PasswordError.REQUIRES_MORE_THAN_EIGHT_CHARACTERS);
         }
 
         if (!password.matches(".*[A-Z].*")) {

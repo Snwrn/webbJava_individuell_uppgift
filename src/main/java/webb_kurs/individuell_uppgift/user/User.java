@@ -1,5 +1,6 @@
 package webb_kurs.individuell_uppgift.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,8 @@ public class User {
     private UUID id = UUID.randomUUID();
 
     private String username;
+
+    @JsonIgnore
     private String password;
 /*
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
