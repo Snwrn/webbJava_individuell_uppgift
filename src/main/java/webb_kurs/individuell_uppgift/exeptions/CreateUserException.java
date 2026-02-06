@@ -1,6 +1,7 @@
 package webb_kurs.individuell_uppgift.exeptions;
 
 public class CreateUserException extends RuntimeException {
+
     public CreateUserException() {}
 
     public CreateUserException(String message) {

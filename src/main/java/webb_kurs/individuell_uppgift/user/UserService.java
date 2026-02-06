@@ -1,6 +1,7 @@
 package webb_kurs.individuell_uppgift.user;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import webb_kurs.individuell_uppgift.exeptions.*;
 
@@ -11,13 +12,16 @@ import java.util.ArrayList;
 public class UserService implements IUserService {
 
     private final IUserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
-    public User createUser(String username, String password) throws CreateUserException {
+    public UserModel createUser(String username, String password) throws CreateUserException {
+        //check if username is empty or too short
         if (username.isBlank() || username.length() < 4) {
             throw new IllegalUsernameException();
         }
 
+        //add list of possible password errors
         var passwordErrors = new ArrayList<PasswordError>();
         if (password.isBlank() || password.length() < 8) {
             passwordErrors.add(PasswordError.REQUIRES_MORE_THAN_EIGHT_CHARACTERS);
@@ -35,15 +39,13 @@ public class UserService implements IUserService {
             throw new IllegalPasswordException(passwordErrors);
         }
 
+        //check if user exists already
         if (userRepository.findByUsername(username).isPresent()) {
             throw new UserAlreadyExistsException();
         }
 
-        var user = new User(username, password);
-        user = userRepository.save(user);
-        // TODO: Implement proper logging
-        System.out.println("User '" + user.getId() + "' with name '" + user.getUsername() + "' created.");
-
-        return user;
+        //Hash password and create user
+        UserModel user = new UserModel(username, passwordEncoder.encode(password));
+        return userRepository.save(user);
     }
 }

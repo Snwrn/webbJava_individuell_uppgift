@@ -11,7 +11,6 @@ import java.util.UUID;
 @AllArgsConstructor
 public class CreateFolderRequest {
     private String title;
-    private UUID userId;
 }
 
 
