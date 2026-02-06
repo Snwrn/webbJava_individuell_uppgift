@@ -1,0 +1,26 @@
+meta {
+  name: delete file with id
+  type: http
+  seq: 9
+}
+
+delete {
+  url: http://localhost:8080/files/60e3a0f2-8daa-4032-b4c5-76d45e10a265
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsZWt0aW9uNyIsImlhdCI6MTc2OTg0MTUxMywiZXhwIjoxNzY5ODQzMzEzLCJzdWIiOiJmNzhiOGMyZC1kOGUzLTQ4NjgtYjRjYS0zZDhkYzM0YTk5ODUiLCJwYW5ua2Frb3IiOiLDpHIgZ290dCJ9.Zyd0HNT8RiWGu30C27lyTOb-sjPgTW70NAQXqT-4pUs
+}
+
+body:multipart-form {
+  title: Testfile_text @contentType(Text)
+  folderId: f3d02bae-8920-4aa0-9db6-45536ac3bd21 @contentType(Text)
+  file: @file(C:\Users\Ekaterina Kretiv\Desktop\test.txt) @contentType(File)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

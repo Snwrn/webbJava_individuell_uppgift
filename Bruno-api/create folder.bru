@@ -1,0 +1,27 @@
+meta {
+  name: create folder
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:8080/folders
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsZWt0aW9uNyIsImlhdCI6MTc2OTg0MjgwMywiZXhwIjoxNzY5ODQ0NjAzLCJzdWIiOiJmNzhiOGMyZC1kOGUzLTQ4NjgtYjRjYS0zZDhkYzM0YTk5ODUiLCJwYW5ua2Frb3IiOiLDpHIgZ290dCJ9.QxNAC3r0pDdmFFQZiGoVcXIpx-FzWGDCZswtKDbrZ4k
+}
+
+body:json {
+  {
+    "title": "TestFolder_1"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

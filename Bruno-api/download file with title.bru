@@ -1,0 +1,26 @@
+meta {
+  name: download file with title
+  type: http
+  seq: 8
+}
+
+get {
+  url: http://localhost:8080/files/download/title/FileTitle
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsZWt0aW9uNyIsImlhdCI6MTc2OTgzOTM1NSwiZXhwIjoxNzY5ODQxMTU1LCJzdWIiOiI4NTQxMTcyNC1iODcxLTQ0MzctYmVkNy03ZDQzNDVkYTgzYTciLCJwYW5ua2Frb3IiOiLDpHIgZ290dCJ9.Rz-cLzhBKtSAW1i7026gSafEpoF_qALJYNnwyczNMTk
+}
+
+body:multipart-form {
+  title: Testfile_text @contentType(Text)
+  folderId: f3d02bae-8920-4aa0-9db6-45536ac3bd21 @contentType(Text)
+  file: @file(C:\Users\Ekaterina Kretiv\Desktop\test.txt) @contentType(File)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

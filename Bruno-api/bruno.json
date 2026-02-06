@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "webb-kurs_individuell-uppgift-api",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

@@ -1,0 +1,20 @@
+meta {
+  name: get my folders
+  type: http
+  seq: 5
+}
+
+get {
+  url: http://localhost:8080/folders/myFolders
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsZWt0aW9uNyIsImlhdCI6MTc2OTg0MzQ4NSwiZXhwIjoxNzY5ODQ1Mjg1LCJzdWIiOiJmNzhiOGMyZC1kOGUzLTQ4NjgtYjRjYS0zZDhkYzM0YTk5ODUiLCJwYW5ua2Frb3IiOiLDpHIgZ290dCJ9.44haZ7-JmEFS7PooTYEluo9H5F3LRNVLjcDyofm4eFU
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

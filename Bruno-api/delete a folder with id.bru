@@ -1,0 +1,20 @@
+meta {
+  name: delete a folder with id
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:8080/folders/5f211d54-afdb-42c5-9bd1-94f45b15c1ab
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsZWt0aW9uNyIsImlhdCI6MTc2OTg0MTUxMywiZXhwIjoxNzY5ODQzMzEzLCJzdWIiOiJmNzhiOGMyZC1kOGUzLTQ4NjgtYjRjYS0zZDhkYzM0YTk5ODUiLCJwYW5ua2Frb3IiOiLDpHIgZ290dCJ9.Zyd0HNT8RiWGu30C27lyTOb-sjPgTW70NAQXqT-4pUs
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

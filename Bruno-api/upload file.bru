@@ -1,0 +1,26 @@
+meta {
+  name: upload file
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:8080/files/upload
+  body: multipartForm
+  auth: none
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJsZWt0aW9uNyIsImlhdCI6MTc2OTg0MzQ4NSwiZXhwIjoxNzY5ODQ1Mjg1LCJzdWIiOiJmNzhiOGMyZC1kOGUzLTQ4NjgtYjRjYS0zZDhkYzM0YTk5ODUiLCJwYW5ua2Frb3IiOiLDpHIgZ290dCJ9.44haZ7-JmEFS7PooTYEluo9H5F3LRNVLjcDyofm4eFU
+}
+
+body:multipart-form {
+  title: FileName_1 @contentType(Text)
+  folderId: f3d02bae-8920-4aa0-9db6-45536ac3bd21 @contentType(Text)
+  file:  @contentType(File)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
