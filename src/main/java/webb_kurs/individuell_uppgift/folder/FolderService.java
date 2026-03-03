@@ -1,9 +1,12 @@
 package webb_kurs.individuell_uppgift.folder;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
+import webb_kurs.individuell_uppgift.exeptions.CreateFileException;
 import webb_kurs.individuell_uppgift.exeptions.CreateFolderException;
 import webb_kurs.individuell_uppgift.exeptions.FolderAlreadyExistsException;
+import webb_kurs.individuell_uppgift.file.FileInstance;
 import webb_kurs.individuell_uppgift.user.IUserRepository;
 import webb_kurs.individuell_uppgift.user.UserModel;
 
@@ -44,9 +47,12 @@ public class FolderService {
     }
 
     //delete folder by id
-    public void deleteFolder(UUID folderId) {
-        if (!folderRepository.existsById(folderId)) {
-            throw new CreateFolderException("Folder not found with id: " + folderId);
+    public void deleteFolder(UUID folderId, UserModel user) {
+        Folder folder = folderRepository.findById(folderId)
+        .orElseThrow(() -> new CreateFolderException("Folder not found with id: " + folderId));
+
+        if (!folder.getUser().getId().equals(user.getId())) {
+            throw new AccessDeniedException("You do not own this folder.");
         }
         folderRepository.deleteById(folderId);
     }

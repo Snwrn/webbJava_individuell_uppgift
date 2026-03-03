@@ -95,7 +95,7 @@ public class FolderController {
         //checks to see if user deletes their own folders
         try {
             UserModel user = (UserModel) authentication.getPrincipal();
-            service.deleteFolder(id);
+            service.deleteFolder(id, user);
             return ResponseEntity.noContent().build();
         }
 

@@ -2,6 +2,7 @@ package webb_kurs.individuell_uppgift.folder;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import webb_kurs.individuell_uppgift.file.FileInstance;
 import webb_kurs.individuell_uppgift.user.UserModel;
 
 import java.util.List;
@@ -19,4 +20,4 @@ public interface IFolderRepository extends JpaRepository<Folder, UUID> {
 
     //to find all folders by userID
     List<Folder> findAllByUser(UserModel user);
-    }
+   }
